@@ -1,7 +1,7 @@
 {
     "name": "ytmpx",
     "version": "0.0.1",
-    "bin": "bin/index.js",
+    "bin": "bin/index.mjs",
     "main": "dist/index.js",
     "types": "dist/index.d.ts",
     "description": "The server that powers ytmpx extension",
