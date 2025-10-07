@@ -1,0 +1,3 @@
+export const DISCORD_CLIENT_ID = '1425124157976219809';
+
+export const WEBSOCKET_PORT = 8765;

@@ -1,0 +1,7 @@
+{
+  "name": "@ytmpx/workspace",
+  "private": true,
+  "author": "Twilight <hello@twlite.dev>",
+  "license": "MIT",
+  "packageManager": "pnpm@10.12.4"
+}

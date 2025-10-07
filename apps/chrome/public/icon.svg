@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="240" height="160" viewBox="0 0 120 80" role="img"
+    aria-labelledby="title desc">
+    <title id="title">YouTube-style button with lightning bolt</title>
+    <desc id="desc">Rounded red rectangle (YouTube-like) with a centered white lightning icon on transparent background
+    </desc>
+
+    <!-- Red rounded rectangle (YouTube button base) -->
+    <rect x="6" y="6" width="108" height="68" rx="14" ry="14" fill="#FF0000" />
+
+    <!-- White lightning bolt -->
+    <path d="M71.5 18.5
+           L52.8 41.0
+           H66.0
+           L45.5 61.5
+           L61.0 38.5
+           H48.5
+           Z" fill="#FFFFFF" />
+</svg>

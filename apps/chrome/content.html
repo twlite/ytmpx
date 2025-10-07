@@ -1,0 +1,1302 @@
+<ytmusic-player-bar
+  slot="player-bar"
+  class="style-scope ytmusic-app"
+  role="toolbar"
+  aria-label="Player bar"
+  is-mweb-player-page-modernization-enabled=""
+  is-web-delhi-icons-enabled=""
+  is-cairo-voting-animation-enabled=""
+  is-playback-progress-a11y-fix-enabled=""
+  repeat-mode="ONE"
+  style="
+    --ytmusic-player-bar-fullscreen-progress-bar-inset: 20px;
+    visibility: visible;
+  "
+  ><!--css-build:shady--><!--css_build_scope:ytmusic-player-bar--><!--css_build_styles:video.youtube.src.web.polymer.shared.ui.styles.yt_base_styles.yt.base.styles.css.js,video.youtube.src.web.polymer.music.app.ui.shared.styles.ytmusic_base_styles.ytmusic.base.styles.css.js,video.youtube.src.web.polymer.music.app.ui.player.ytmusic_player_bar.ytmusic.player.bar.css.js-->
+  <div
+    id="left-controls"
+    class="left-controls style-scope ytmusic-player-bar"
+    style="width: 280px"
+  >
+    <div class="left-controls-buttons style-scope ytmusic-player-bar" dir="ltr">
+      <yt-icon-button
+        class="previous-button style-scope ytmusic-player-bar"
+        title="Previous"
+        ><!--css-build:shady--><!--css-build:shady--><button
+          id="button"
+          class="style-scope yt-icon-button"
+          aria-label="Previous"
+        >
+          <yt-icon class="style-scope ytmusic-player-bar"
+            ><!--css-build:shady--><!--css-build:shady--><span
+              class="yt-icon-shape style-scope yt-icon ytSpecIconShapeHost"
+              ><div
+                style="
+                  width: 100%;
+                  height: 100%;
+                  display: block;
+                  fill: currentcolor;
+                "
+              >
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  fill="currentColor"
+                  height="24"
+                  viewBox="0 0 24 24"
+                  width="24"
+                  focusable="false"
+                  aria-hidden="true"
+                  style="
+                    pointer-events: none;
+                    display: inherit;
+                    width: 100%;
+                    height: 100%;
+                  "
+                >
+                  <path
+                    d="M4 4a1 1 0 00-1 1v14a1 1 0 102 0V5a1 1 0 00-1-1Zm14.955.23L6 12.003l12.955 7.772A1.35 1.35 0 0021 18.617V5.387a1.35 1.35 0 00-2.045-1.157Z"
+                  ></path>
+                </svg></div></span
+          ></yt-icon></button
+        ><yt-interaction
+          id="interaction"
+          class="circular style-scope yt-icon-button"
+          ><!--css-build:shady--><!--css-build:shady-->
+          <div class="stroke style-scope yt-interaction"></div>
+          <div class="fill style-scope yt-interaction"></div></yt-interaction
+      ></yt-icon-button>
+      <yt-icon-button
+        class="rewind-button style-scope ytmusic-player-bar"
+        title="Rewind 10 seconds"
+        hidden=""
+        ><!--css-build:shady--><!--css-build:shady--><button
+          id="button"
+          class="style-scope yt-icon-button"
+          aria-label="Rewind 10 seconds"
+        >
+          <yt-icon
+            active="true"
+            icon="yt-sys-icons:replay_10"
+            class="style-scope ytmusic-player-bar"
+            ><!--css-build:shady--><!--css-build:shady--><span
+              class="yt-icon-shape style-scope yt-icon ytSpecIconShapeHost"
+              ><div
+                style="
+                  width: 100%;
+                  height: 100%;
+                  display: block;
+                  fill: currentcolor;
+                "
+              >
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  fill="currentColor"
+                  height="24"
+                  viewBox="0 0 24 24"
+                  width="24"
+                  focusable="false"
+                  aria-hidden="true"
+                  style="
+                    pointer-events: none;
+                    display: inherit;
+                    width: 100%;
+                    height: 100%;
+                  "
+                >
+                  <path
+                    d="M4.293.293a1 1 0 011.414 1.414L4.414 3H13l.496.013A10 10 0 0113 23a1 1 0 010-2 8 8 0 00.396-15.99L13 5H4.414l1.293 1.293a1 1 0 11-1.414 1.414L.586 4 4.293.293ZM13.5 8.75a2.5 2.5 0 00-2.5 2.5v3.5a2.5 2.5 0 005 0v-3.5a2.5 2.5 0 00-2.5-2.5Zm-3.5 7.5V9H7.75a.75.75 0 000 1.5h.75v5.75a.75.75 0 101.5 0Zm3.5-6a1 1 0 011 1v3.5a1 1 0 01-2 0v-3.5a1 1 0 011-1Z"
+                  ></path>
+                </svg></div></span
+          ></yt-icon></button
+        ><yt-interaction
+          id="interaction"
+          class="circular style-scope yt-icon-button"
+          ><!--css-build:shady--><!--css-build:shady-->
+          <div class="stroke style-scope yt-interaction"></div>
+          <div class="fill style-scope yt-interaction"></div></yt-interaction
+      ></yt-icon-button>
+      <yt-icon-button
+        id="play-pause-button"
+        class="play-pause-button style-scope ytmusic-player-bar"
+        title="Play"
+        ><!--css-build:shady--><!--css-build:shady--><button
+          id="button"
+          class="style-scope yt-icon-button"
+          aria-label="Play"
+        >
+          <yt-icon class="style-scope ytmusic-player-bar"
+            ><!--css-build:shady--><!--css-build:shady--><span
+              class="yt-icon-shape style-scope yt-icon ytSpecIconShapeHost"
+              ><div
+                style="
+                  width: 100%;
+                  height: 100%;
+                  display: block;
+                  fill: currentcolor;
+                "
+              >
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  fill="currentColor"
+                  height="24"
+                  viewBox="0 0 24 24"
+                  width="24"
+                  focusable="false"
+                  aria-hidden="true"
+                  style="
+                    pointer-events: none;
+                    display: inherit;
+                    width: 100%;
+                    height: 100%;
+                  "
+                >
+                  <path
+                    d="M5 4.623V19.38a1.5 1.5 0 002.26 1.29L22 12 7.26 3.33A1.5 1.5 0 005 4.623Z"
+                  ></path>
+                </svg></div></span
+          ></yt-icon></button
+        ><yt-interaction
+          id="interaction"
+          class="circular style-scope yt-icon-button"
+          ><!--css-build:shady--><!--css-build:shady-->
+          <div class="stroke style-scope yt-interaction"></div>
+          <div class="fill style-scope yt-interaction"></div></yt-interaction
+      ></yt-icon-button>
+      <div class="spinner-container style-scope ytmusic-player-bar" hidden="">
+        <tp-yt-paper-spinner-lite
+          id="buffering-spinner"
+          class="play-pause-button-spinner style-scope ytmusic-player-bar"
+          aria-label="loading"
+          hidden=""
+          aria-hidden="true"
+          ><!--css-build:shady--><!--css-build:shady-->
+          <div
+            id="spinnerContainer"
+            class="active cooldown style-scope tp-yt-paper-spinner-lite"
+          >
+            <div class="spinner-layer style-scope tp-yt-paper-spinner-lite">
+              <div
+                class="circle-clipper left style-scope tp-yt-paper-spinner-lite"
+              >
+                <div class="circle style-scope tp-yt-paper-spinner-lite"></div>
+              </div>
+              <div
+                class="circle-clipper right style-scope tp-yt-paper-spinner-lite"
+              >
+                <div class="circle style-scope tp-yt-paper-spinner-lite"></div>
+              </div>
+            </div>
+          </div>
+        </tp-yt-paper-spinner-lite>
+      </div>
+      <yt-icon-button
+        class="style-scope ytmusic-player-bar"
+        title="Fast forward 30 seconds"
+        hidden=""
+        ><!--css-build:shady--><!--css-build:shady--><button
+          id="button"
+          class="style-scope yt-icon-button"
+          aria-label="Fast forward 30 seconds"
+        >
+          <yt-icon
+            active="true"
+            icon="yt-sys-icons:skip_forward_30"
+            class="style-scope ytmusic-player-bar"
+            ><!--css-build:shady--><!--css-build:shady--><span
+              class="yt-icon-shape style-scope yt-icon ytSpecIconShapeHost"
+              ><div
+                style="
+                  width: 100%;
+                  height: 100%;
+                  display: block;
+                  fill: currentcolor;
+                "
+              >
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  fill="currentColor"
+                  height="24"
+                  viewBox="0 0 24 24"
+                  width="24"
+                  focusable="false"
+                  aria-hidden="true"
+                  style="
+                    pointer-events: none;
+                    display: inherit;
+                    width: 100%;
+                    height: 100%;
+                  "
+                >
+                  <path
+                    d="M18.293.293a1 1 0 000 1.414L19.586 3H11a10 10 0 000 20 1 1 0 000-2 8 8 0 010-16h8.586l-1.293 1.293a1 1 0 001.414 1.414L23.414 4 19.707.293a1 1 0 00-1.414 0ZM9.626 8.75H9.37a2.56 2.56 0 00-2.291 1.415.75.75 0 101.342.67 1.06 1.06 0 01.947-.585h.258a.874.874 0 01.144 1.736L9.688 12H9a.75.75 0 100 1.5h.696l.088.013a1.123 1.123 0 01-.158 2.237h-.135a1.26 1.26 0 01-1.126-.696l-.194-.39a.75.75 0 00-1.342.67l.195.39a2.76 2.76 0 002.467 1.526h.135a2.624 2.624 0 001.78-4.554 2.374 2.374 0 00-1.78-3.946Zm5.874 0a2.5 2.5 0 00-2.5 2.5v3.5a2.5 2.5 0 005 0v-3.5a2.5 2.5 0 00-2.5-2.5Zm0 1.5a1 1 0 011 1v3.5a1 1 0 01-2 0v-3.5a1 1 0 011-1Z"
+                  ></path>
+                </svg></div></span
+          ></yt-icon></button
+        ><yt-interaction
+          id="interaction"
+          class="circular style-scope yt-icon-button"
+          ><!--css-build:shady--><!--css-build:shady-->
+          <div class="stroke style-scope yt-interaction"></div>
+          <div class="fill style-scope yt-interaction"></div></yt-interaction
+      ></yt-icon-button>
+      <yt-icon-button
+        class="next-button style-scope ytmusic-player-bar"
+        title="Next"
+        ><!--css-build:shady--><!--css-build:shady--><button
+          id="button"
+          class="style-scope yt-icon-button"
+          aria-label="Next"
+        >
+          <yt-icon class="style-scope ytmusic-player-bar"
+            ><!--css-build:shady--><!--css-build:shady--><span
+              class="yt-icon-shape style-scope yt-icon ytSpecIconShapeHost"
+              ><div
+                style="
+                  width: 100%;
+                  height: 100%;
+                  display: block;
+                  fill: currentcolor;
+                "
+              >
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  fill="currentColor"
+                  height="24"
+                  viewBox="0 0 24 24"
+                  width="24"
+                  focusable="false"
+                  aria-hidden="true"
+                  style="
+                    pointer-events: none;
+                    display: inherit;
+                    width: 100%;
+                    height: 100%;
+                  "
+                >
+                  <path
+                    d="M20 20a1 1 0 001-1V5a1 1 0 00-2 0v14a1 1 0 001 1Zm-14.955-.226L18 12 5.045 4.228A1.35 1.35 0 003 5.386v13.23a1.35 1.35 0 002.045 1.158Z"
+                  ></path>
+                </svg></div></span
+          ></yt-icon></button
+        ><yt-interaction
+          id="interaction"
+          class="circular style-scope yt-icon-button"
+          ><!--css-build:shady--><!--css-build:shady-->
+          <div class="stroke style-scope yt-interaction"></div>
+          <div class="fill style-scope yt-interaction"></div></yt-interaction
+      ></yt-icon-button>
+    </div>
+    <dom-if class="style-scope ytmusic-player-bar"
+      ><template is="dom-if"></template
+    ></dom-if>
+    <span
+      class="time-info style-scope ytmusic-player-bar"
+      dir="ltr"
+      translate="no"
+    >
+      0:06 / 3:40
+    </span>
+    <dom-if class="style-scope ytmusic-player-bar"
+      ><template is="dom-if"></template
+    ></dom-if>
+  </div>
+  <div class="middle-controls style-scope ytmusic-player-bar">
+    <div class="thumbnail-image-wrapper style-scope ytmusic-player-bar">
+      <img
+        class="image style-scope ytmusic-player-bar"
+        alt=""
+        draggable="false"
+        src="https://lh3.googleusercontent.com/bV67_fMwmviiYQZ3CEr0ggTshu4WQVFmUUyEFijb1ysH3roCzm6b4IXckvHtc42qOPFxXrGxcChV1RICXQ=w60-h60-l90-rj"
+      />
+      <div
+        class="cast-overlay-wrapper style-scope ytmusic-player-bar"
+        hidden=""
+      >
+        <yt-icon active="true" class="style-scope ytmusic-player-bar"
+          ><!--css-build:shady--><!--css-build:shady--><span
+            class="yt-icon-shape style-scope yt-icon ytSpecIconShapeHost"
+            ><div
+              style="
+                width: 100%;
+                height: 100%;
+                display: block;
+                fill: currentcolor;
+              "
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                fill="currentColor"
+                height="24"
+                viewBox="0 0 24 24"
+                width="24"
+                focusable="false"
+                aria-hidden="true"
+                style="
+                  pointer-events: none;
+                  display: inherit;
+                  width: 100%;
+                  height: 100%;
+                "
+              >
+                <path
+                  d="M21 3a2 2 0 012 2v14a2 2 0 01-2 2h-7a13.265 13.265 0 00-.153-2H21V5H3v3.153A13 13 0 001 8V5a2 2 0 012-2h18Zm-2 14V7H5v1.627A13.031 13.031 0 0113.373 17H19ZM1 10v2a9 9 0 019 9h2A11 11 0 001 10Zm0 4v2a5 5 0 015 5h2a7 7 0 00-7-7Zm0 4v3h3a3.003 3.003 0 00-3-3Z"
+                ></path>
+              </svg></div></span
+        ></yt-icon>
+      </div>
+    </div>
+    <div class="content-info-wrapper style-scope ytmusic-player-bar">
+      <yt-formatted-string
+        class="title style-scope ytmusic-player-bar"
+        ellipsis-truncate=""
+        title="This Is What Autumn Feels Like"
+        ellipsis-truncate-styling=""
+        >This Is What Autumn Feels Like</yt-formatted-string
+      >
+      <span class="byline-wrapper style-scope ytmusic-player-bar">
+        <div id="badges" class="style-scope ytmusic-player-bar"></div>
+        <span
+          class="badge-style-type-ad-stark style-scope ytmusic-player-bar"
+          hidden=""
+          >Sponsored</span
+        >
+        <span class="subtitle style-scope ytmusic-player-bar">
+          <yt-formatted-string
+            class="byline style-scope ytmusic-player-bar complex-string"
+            ellipsis-truncate=""
+            ellipsis-truncate-styling=""
+            title="JVKE • This Is What Autumn Feels Like • 2023"
+            ><a
+              class="yt-simple-endpoint style-scope yt-formatted-string"
+              spellcheck="false"
+              href="channel/UCM1rew0hxgW7e-TRfmrMung"
+              dir="auto"
+              >JVKE</a
+            ><span dir="auto" class="style-scope yt-formatted-string"> • </span
+            ><a
+              class="yt-simple-endpoint style-scope yt-formatted-string"
+              spellcheck="false"
+              href="browse/MPREb_ncuZcg1N6Y1"
+              dir="auto"
+              >This Is What Autumn Feels Like</a
+            ><span dir="auto" class="style-scope yt-formatted-string"> • </span
+            ><span dir="auto" class="style-scope yt-formatted-string"
+              >2023</span
+            ></yt-formatted-string
+          >
+          <dom-repeat as="text" class="style-scope ytmusic-player-bar"
+            ><template is="dom-repeat"></template
+          ></dom-repeat>
+        </span>
+      </span>
+    </div>
+    <div class="middle-controls-buttons style-scope ytmusic-player-bar">
+      <ytmusic-like-button-renderer
+        id="like-button-renderer"
+        class="thumbs style-scope ytmusic-player-bar"
+        show-hover=""
+        like-status="INDIFFERENT"
+        ><!--css-build:shady--><!--css-build:shady--><yt-button-shape
+          id="button-shape-dislike"
+          class="dislike style-scope ytmusic-like-button-renderer"
+        >
+          <button
+            class="yt-spec-button-shape-next yt-spec-button-shape-next--text yt-spec-button-shape-next--mono yt-spec-button-shape-next--size-m yt-spec-button-shape-next--icon-button yt-spec-button-shape-next--enable-backdrop-filter-experiment"
+            title=""
+            aria-pressed="false"
+            aria-label="Dislike"
+          >
+            <div aria-hidden="true" class="yt-spec-button-shape-next__icon">
+              <span class="ytIconWrapperHost" style="width: 24px; height: 24px"
+                ><span class="yt-icon-shape ytSpecIconShapeHost"
+                  ><div
+                    style="
+                      width: 100%;
+                      height: 100%;
+                      display: block;
+                      fill: currentcolor;
+                    "
+                  >
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      fill="currentColor"
+                      height="24"
+                      viewBox="0 0 24 24"
+                      width="24"
+                      focusable="false"
+                      aria-hidden="true"
+                      style="
+                        pointer-events: none;
+                        display: inherit;
+                        width: 100%;
+                        height: 100%;
+                      "
+                    >
+                      <path
+                        d="m11.31 2 .392.007c1.824.06 3.61.534 5.223 1.388l.343.189.27.154c.264.152.56.24.863.26l.13.004H20.5a1.5 1.5 0 011.5 1.5V11.5a1.5 1.5 0 01-1.5 1.5h-1.79l-.158.013a1 1 0 00-.723.512l-.064.145-2.987 8.535a1 1 0 01-1.109.656l-1.04-.174a4 4 0 01-3.251-4.783L10 15H5.938a3.664 3.664 0 01-3.576-2.868A3.682 3.682 0 013 9.15l-.02-.088A3.816 3.816 0 014 5.5v-.043l.008-.227a2.86 2.86 0 01.136-.664l.107-.28A3.754 3.754 0 017.705 2h3.605ZM7.705 4c-.755 0-1.425.483-1.663 1.2l-.032.126a.818.818 0 00-.01.131v.872l-.587.586a1.816 1.816 0 00-.524 1.465l.038.23.02.087.21.9-.55.744a1.686 1.686 0 00-.321 1.18l.029.177c.17.76.844 1.302 1.623 1.302H10a2.002 2.002 0 011.956 2.419l-.623 2.904-.034.208a2.002 2.002 0 001.454 2.139l.206.045.21.035 2.708-7.741A3.001 3.001 0 0118.71 11H20V6.002h-1.47c-.696 0-1.38-.183-1.985-.528l-.27-.155-.285-.157A10.002 10.002 0 0011.31 4H7.705Z"
+                      ></path>
+                    </svg></div></span
+              ></span>
+            </div>
+            <yt-touch-feedback-shape
+              aria-hidden="true"
+              class="yt-spec-touch-feedback-shape yt-spec-touch-feedback-shape--touch-response"
+              ><div class="yt-spec-touch-feedback-shape__stroke"></div>
+              <div class="yt-spec-touch-feedback-shape__fill"></div
+            ></yt-touch-feedback-shape></button
+        ></yt-button-shape>
+        <yt-button-shape
+          id="button-shape-like"
+          class="like style-scope ytmusic-like-button-renderer"
+        >
+          <button
+            class="yt-spec-button-shape-next yt-spec-button-shape-next--text yt-spec-button-shape-next--mono yt-spec-button-shape-next--size-m yt-spec-button-shape-next--icon-button yt-spec-button-shape-next--enable-backdrop-filter-experiment"
+            title=""
+            aria-pressed="false"
+            aria-label="Like"
+          >
+            <div aria-hidden="true" class="yt-spec-button-shape-next__icon">
+              <span class="ytIconWrapperHost" style="width: 24px; height: 24px"
+                ><span class="yt-icon-shape ytSpecIconShapeHost"
+                  ><div
+                    style="
+                      width: 100%;
+                      height: 100%;
+                      display: block;
+                      fill: currentcolor;
+                    "
+                  >
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      fill="currentColor"
+                      height="24"
+                      viewBox="0 0 24 24"
+                      width="24"
+                      focusable="false"
+                      aria-hidden="true"
+                      style="
+                        pointer-events: none;
+                        display: inherit;
+                        width: 100%;
+                        height: 100%;
+                      "
+                    >
+                      <path
+                        d="M9.221 1.795a1 1 0 011.109-.656l1.04.173a4 4 0 013.252 4.784L14 9h4.061a3.664 3.664 0 013.576 2.868A3.68 3.68 0 0121 14.85l.02.087A3.815 3.815 0 0120 18.5v.043l-.01.227a2.82 2.82 0 01-.135.663l-.106.282A3.754 3.754 0 0116.295 22h-3.606l-.392-.007a12.002 12.002 0 01-5.223-1.388l-.343-.189-.27-.154a2.005 2.005 0 00-.863-.26l-.13-.004H3.5a1.5 1.5 0 01-1.5-1.5V12.5A1.5 1.5 0 013.5 11h1.79l.157-.013a1 1 0 00.724-.512l.063-.145 2.987-8.535Zm-1.1 9.196A3 3 0 015.29 13H4v4.998h1.468a4 4 0 011.986.528l.27.155.285.157A10 10 0 0012.69 20h3.606c.754 0 1.424-.483 1.663-1.2l.03-.126a.819.819 0 00.012-.131v-.872l.587-.586c.388-.388.577-.927.523-1.465l-.038-.23-.02-.087-.21-.9.55-.744A1.663 1.663 0 0018.061 11H14a2.002 2.002 0 01-1.956-2.418l.623-2.904a2 2 0 00-1.626-2.392l-.21-.035-2.71 7.741Z"
+                      ></path>
+                    </svg></div></span
+              ></span>
+            </div>
+            <yt-touch-feedback-shape
+              aria-hidden="true"
+              class="yt-spec-touch-feedback-shape yt-spec-touch-feedback-shape--touch-response"
+              ><div class="yt-spec-touch-feedback-shape__stroke"></div>
+              <div class="yt-spec-touch-feedback-shape__fill"></div
+            ></yt-touch-feedback-shape></button
+        ></yt-button-shape>
+      </ytmusic-like-button-renderer>
+
+      <ytmusic-menu-renderer
+        class="menu style-scope ytmusic-player-bar"
+        show-hover=""
+        dropdown-only=""
+        ><!--css-build:shady--><!--css-build:shady-->
+        <div id="top-level-buttons" class="style-scope ytmusic-menu-renderer">
+          <dom-repeat as="button" class="style-scope ytmusic-menu-renderer"
+            ><template is="dom-repeat"></template
+          ></dom-repeat>
+        </div>
+
+        <yt-button-shape
+          id="button-shape"
+          class="style-scope ytmusic-menu-renderer"
+        >
+          <button
+            class="yt-spec-button-shape-next yt-spec-button-shape-next--text yt-spec-button-shape-next--mono yt-spec-button-shape-next--size-m yt-spec-button-shape-next--icon-button yt-spec-button-shape-next--enable-backdrop-filter-experiment"
+            title=""
+            aria-label="Action menu"
+          >
+            <div aria-hidden="true" class="yt-spec-button-shape-next__icon">
+              <span class="ytIconWrapperHost" style="width: 24px; height: 24px"
+                ><span class="yt-icon-shape ytSpecIconShapeHost"
+                  ><div
+                    style="
+                      width: 100%;
+                      height: 100%;
+                      display: block;
+                      fill: currentcolor;
+                    "
+                  >
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      fill="currentColor"
+                      height="24"
+                      viewBox="0 0 24 24"
+                      width="24"
+                      focusable="false"
+                      aria-hidden="true"
+                      style="
+                        pointer-events: none;
+                        display: inherit;
+                        width: 100%;
+                        height: 100%;
+                      "
+                    >
+                      <path
+                        d="M12 4a2 2 0 100 4 2 2 0 000-4Zm0 6a2 2 0 100 4 2 2 0 000-4Zm0 6a2 2 0 100 4 2 2 0 000-4Z"
+                      ></path>
+                    </svg></div></span
+              ></span>
+            </div>
+            <yt-touch-feedback-shape
+              aria-hidden="true"
+              class="yt-spec-touch-feedback-shape yt-spec-touch-feedback-shape--touch-response"
+              ><div class="yt-spec-touch-feedback-shape__stroke"></div>
+              <div class="yt-spec-touch-feedback-shape__fill"></div
+            ></yt-touch-feedback-shape></button
+        ></yt-button-shape>
+        <dom-if class="style-scope ytmusic-menu-renderer"
+          ><template is="dom-if"></template
+        ></dom-if>
+      </ytmusic-menu-renderer>
+      <dom-if class="style-scope ytmusic-player-bar"
+        ><template is="dom-if"></template
+      ></dom-if>
+    </div>
+  </div>
+  <div
+    id="right-controls"
+    class="right-controls style-scope ytmusic-player-bar"
+    style="width: 280px"
+  >
+    <tp-yt-paper-slider
+      id="volume-slider"
+      class="volume-slider style-scope ytmusic-player-bar"
+      max="100"
+      min="0"
+      dir="ltr"
+      title="Volume"
+      aria-label="Volume"
+      role="slider"
+      tabindex="0"
+      value="0"
+      aria-valuemin="0"
+      aria-valuemax="100"
+      aria-valuenow="0"
+      aria-disabled="false"
+      ><!--css-build:shady--><!--css-build:shady-->
+      <div
+        id="sliderContainer"
+        class="ring style-scope tp-yt-paper-slider style-scope tp-yt-paper-slider"
+      >
+        <div class="bar-container style-scope tp-yt-paper-slider">
+          <tp-yt-paper-progress
+            id="sliderBar"
+            aria-hidden="true"
+            class="style-scope tp-yt-paper-slider"
+            role="progressbar"
+            value="0"
+            aria-valuenow="0"
+            aria-valuemin="0"
+            aria-valuemax="100"
+            aria-disabled="false"
+            style="touch-action: none"
+            ><!--css-build:shady--><!--css-build:shady-->
+            <div
+              id="progressContainer"
+              class="style-scope tp-yt-paper-progress"
+            >
+              <div
+                id="secondaryProgress"
+                class="style-scope tp-yt-paper-progress"
+                hidden=""
+                style="transform: scaleX(0)"
+              ></div>
+              <div
+                id="primaryProgress"
+                class="style-scope tp-yt-paper-progress"
+                style="transform: scaleX(0)"
+              ></div>
+            </div>
+          </tp-yt-paper-progress>
+        </div>
+
+        <dom-if class="style-scope tp-yt-paper-slider"
+          ><template is="dom-if"></template
+        ></dom-if>
+
+        <div
+          id="sliderKnobContainer"
+          class="slider-knob-container style-scope tp-yt-paper-slider"
+        >
+          <div
+            id="sliderKnob"
+            class="slider-knob style-scope tp-yt-paper-slider"
+            style="left: 0%; touch-action: none"
+          >
+            <div
+              class="slider-knob-inner style-scope tp-yt-paper-slider"
+              value="0"
+            ></div>
+          </div>
+        </div>
+      </div>
+
+      <dom-if class="style-scope tp-yt-paper-slider"
+        ><template is="dom-if"></template
+      ></dom-if>
+    </tp-yt-paper-slider>
+    <div class="right-controls-buttons style-scope ytmusic-player-bar">
+      <yt-icon-button
+        class="volume style-scope ytmusic-player-bar"
+        aria-live="polite"
+        title="Unmute"
+        ><!--css-build:shady--><!--css-build:shady--><button
+          id="button"
+          class="style-scope yt-icon-button"
+          aria-label="Unmute"
+        >
+          <yt-icon class="style-scope ytmusic-player-bar"
+            ><!--css-build:shady--><!--css-build:shady--><span
+              class="yt-icon-shape style-scope yt-icon ytSpecIconShapeHost"
+              ><div
+                style="
+                  width: 100%;
+                  height: 100%;
+                  display: block;
+                  fill: currentcolor;
+                "
+              >
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  fill="currentColor"
+                  height="24"
+                  viewBox="0 0 24 24"
+                  width="24"
+                  focusable="false"
+                  aria-hidden="true"
+                  style="
+                    pointer-events: none;
+                    display: inherit;
+                    width: 100%;
+                    height: 100%;
+                  "
+                >
+                  <path
+                    d="M11.485 2.143 3.913 6.687A6 6 0 001 11.832v.338a6 6 0 002.913 5.144l7.572 4.543A1 1 0 0013 21V3a1.001 1.001 0 00-1.515-.857ZM4.942 8.4 11 4.767v14.466l-6.058-3.634A4 4 0 013 12.169v-.338A4 4 0 014.942 8.4Zm16.351-.108L19 10.586l-2.293-2.293a1 1 0 10-1.414 1.414L17.586 12l-2.293 2.293a1 1 0 101.414 1.414L19 13.414l2.293 2.293a1 1 0 101.414-1.414L20.414 12l2.293-2.294a1 1 0 10-1.414-1.414Z"
+                  ></path>
+                </svg></div></span
+          ></yt-icon></button
+        ><yt-interaction
+          id="interaction"
+          class="circular style-scope yt-icon-button"
+          ><!--css-build:shady--><!--css-build:shady-->
+          <div class="stroke style-scope yt-interaction"></div>
+          <div class="fill style-scope yt-interaction"></div></yt-interaction
+      ></yt-icon-button>
+      <ytmusic-playback-rate-renderer
+        class="playback-rate style-scope ytmusic-player-bar"
+        title="Playback Speed"
+        is-web-delhi-icons-enabled=""
+        hidden=""
+        ><!--css-build:shady--><!--css-build:shady--><yt-icon-button
+          id="button"
+          class="playback-rate-dropdown-trigger style-scope ytmusic-playback-rate-renderer"
+          ><!--css-build:shady--><!--css-build:shady--><button
+            id="button"
+            class="style-scope yt-icon-button"
+          >
+            <yt-icon
+              icon="yt-sys-icons:play_arrow_half_circle"
+              class="style-scope ytmusic-playback-rate-renderer"
+              ><!--css-build:shady--><!--css-build:shady--><span
+                class="yt-icon-shape style-scope yt-icon ytSpecIconShapeHost"
+                ><div
+                  style="
+                    width: 100%;
+                    height: 100%;
+                    display: block;
+                    fill: currentcolor;
+                  "
+                >
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    fill="currentColor"
+                    height="24"
+                    viewBox="0 0 24 24"
+                    width="24"
+                    focusable="false"
+                    aria-hidden="true"
+                    style="
+                      pointer-events: none;
+                      display: inherit;
+                      width: 100%;
+                      height: 100%;
+                    "
+                  >
+                    <path
+                      d="M13.02 2.002v.002a1 1 0 00.78 1.179 9 9 0 017.068 7.288 9.003 9.003 0 01-7.075 10.349 1 1 0 00.4 1.96A11 11 0 0014.2 1.224a1 1 0 00-1.18.778Zm-3.214-.777a11 11 0 00-3.872 1.6 1 1 0 101.102 1.67 9 9 0 013.168-1.31 1 1 0 00-.398-1.96ZM2.822 5.937a11 11 0 00-1.602 3.87 1 1 0 001.96.4A9 9 0 014.49 7.04a1 1 0 00-1.668-1.103ZM17 12.003l-8-4.8v9.6l8-4.8ZM2 13.017a1 1 0 00-.78 1.18 11 11 0 001.602 3.872 1 1 0 001.668-1.102 9 9 0 01-1.31-3.17 1 1 0 00-1.18-.78Zm3.653 6.775a1 1 0 00.282 1.386 11 11 0 003.872 1.602.999.999 0 10.398-1.96 9.001 9.001 0 01-3.168-1.31 1 1 0 00-1.384.282Z"
+                    ></path>
+                  </svg></div></span
+            ></yt-icon></button
+          ><yt-interaction
+            id="interaction"
+            class="circular style-scope yt-icon-button"
+            ><!--css-build:shady--><!--css-build:shady-->
+            <div class="stroke style-scope yt-interaction"></div>
+            <div class="fill style-scope yt-interaction"></div></yt-interaction
+        ></yt-icon-button>
+      </ytmusic-playback-rate-renderer>
+      <yt-icon-button
+        class="repeat style-scope ytmusic-player-bar"
+        aria-live="polite"
+        title="Repeat one"
+        label="Repeat one"
+        ><!--css-build:shady--><!--css-build:shady--><button
+          id="button"
+          class="style-scope yt-icon-button"
+          aria-label="Repeat one"
+        >
+          <yt-icon class="style-scope ytmusic-player-bar"
+            ><!--css-build:shady--><!--css-build:shady--><span
+              class="yt-icon-shape style-scope yt-icon ytSpecIconShapeHost"
+              ><div
+                style="
+                  width: 100%;
+                  height: 100%;
+                  display: block;
+                  fill: currentcolor;
+                "
+              >
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  fill="currentColor"
+                  height="24"
+                  viewBox="0 0 24 24"
+                  width="24"
+                  focusable="false"
+                  aria-hidden="true"
+                  style="
+                    pointer-events: none;
+                    display: inherit;
+                    width: 100%;
+                    height: 100%;
+                  "
+                >
+                  <path
+                    d="M17.293 1.293a1 1 0 000 1.415L18.586 4H7a5 5 0 00-5 5v4a1 1 0 102 0V9a3 3 0 013-3h11.586l-1.293 1.293a1 1 0 001.414 1.415L22.414 5l-3.707-3.707a1 1 0 00-1.414 0ZM13 15V8h-2.5a1 1 0 000 2h.5v5a1 1 0 002 0Zm8-5a1 1 0 00-1 1v4a3 3 0 01-3 3H5.414l1.293-1.292a1.001 1.001 0 00-1.414-1.415L1.586 19l3.707 3.707a1 1 0 101.414-1.413L5.414 20H17a5 5 0 005-5v-4a1 1 0 00-1-1Z"
+                  ></path>
+                </svg></div></span
+          ></yt-icon></button
+        ><yt-interaction
+          id="interaction"
+          class="circular style-scope yt-icon-button"
+          ><!--css-build:shady--><!--css-build:shady-->
+          <div class="stroke style-scope yt-interaction"></div>
+          <div class="fill style-scope yt-interaction"></div></yt-interaction
+      ></yt-icon-button>
+      <yt-icon-button
+        class="shuffle style-scope ytmusic-player-bar"
+        title="Shuffle"
+        ><!--css-build:shady--><!--css-build:shady--><button
+          id="button"
+          class="style-scope yt-icon-button"
+          aria-label="Shuffle"
+        >
+          <yt-icon class="style-scope ytmusic-player-bar"
+            ><!--css-build:shady--><!--css-build:shady--><span
+              class="yt-icon-shape style-scope yt-icon ytSpecIconShapeHost"
+              ><div
+                style="
+                  width: 100%;
+                  height: 100%;
+                  display: block;
+                  fill: currentcolor;
+                "
+              >
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  fill="currentColor"
+                  height="24"
+                  viewBox="0 0 24 24"
+                  width="24"
+                  focusable="false"
+                  aria-hidden="true"
+                  style="
+                    pointer-events: none;
+                    display: inherit;
+                    width: 100%;
+                    height: 100%;
+                  "
+                >
+                  <path
+                    d="M16.293 1.293a1 1 0 00-.001 1.415L18.585 5H17.21a7 7 0 00-5.823 3.118L6.95 14.774A5 5 0 012.79 17H2a1 1 0 000 2h.79a7 7 0 005.822-3.117l4.438-6.656A5 5 0 0117.21 7h1.376l-2.293 2.293a1 1 0 001.414 1.414L22.414 6l-4.707-4.707a1 1 0 00-1.414 0ZM2.789 5H2a1 1 0 000 2h.79a5 5 0 014.159 2.227l.647.97 1.202-1.802-.185-.277A7 7 0 002.789 5Zm13.504 8.293a1 1 0 00-.001 1.414L18.585 17H17.21a5 5 0 01-4.16-2.226l-.648-.972-1.202 1.803.186.278A7 7 0 0017.21 19h1.376l-2.293 2.294-.068.076a1 1 0 001.406 1.406l.076-.07L22.414 18l-4.707-4.707a1 1 0 00-1.414 0Z"
+                  ></path>
+                </svg></div></span
+          ></yt-icon></button
+        ><yt-interaction
+          id="interaction"
+          class="circular style-scope yt-icon-button"
+          ><!--css-build:shady--><!--css-build:shady-->
+          <div class="stroke style-scope yt-interaction"></div>
+          <div class="fill style-scope yt-interaction"></div></yt-interaction
+      ></yt-icon-button>
+      <yt-icon-button
+        class="expand-button style-scope ytmusic-player-bar"
+        aria-haspopup="true"
+        aria-owns="expanding-menu"
+        title="More player controls"
+        ><!--css-build:shady--><!--css-build:shady--><button
+          id="button"
+          class="style-scope yt-icon-button"
+          aria-label="More player controls"
+        >
+          <yt-icon class="style-scope ytmusic-player-bar"
+            ><!--css-build:shady--><!--css-build:shady--><span
+              class="yt-icon-shape style-scope yt-icon ytSpecIconShapeHost"
+              ><div
+                style="
+                  width: 100%;
+                  height: 100%;
+                  display: block;
+                  fill: currentcolor;
+                "
+              >
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  fill="currentColor"
+                  height="24"
+                  viewBox="0 0 24 24"
+                  width="24"
+                  focusable="false"
+                  aria-hidden="true"
+                  style="
+                    pointer-events: none;
+                    display: inherit;
+                    width: 100%;
+                    height: 100%;
+                  "
+                >
+                  <path
+                    d="M4.135 7a1 1 0 00-.768 1.64L12 19l8.633-10.36A1 1 0 0019.865 7H4.135Z"
+                  ></path>
+                </svg></div></span
+          ></yt-icon></button
+        ><yt-interaction
+          id="interaction"
+          class="circular style-scope yt-icon-button"
+          ><!--css-build:shady--><!--css-build:shady-->
+          <div class="stroke style-scope yt-interaction"></div>
+          <div class="fill style-scope yt-interaction"></div></yt-interaction
+      ></yt-icon-button>
+    </div>
+    <ytmusic-player-expanding-menu
+      id="expanding-menu"
+      aria-expanded="false"
+      no-cancel-on-outside-click=""
+      restore-focus-on-close="true"
+      class="style-scope ytmusic-player-bar"
+      aria-hidden="true"
+      role="toolbar"
+      style="outline: none; display: none"
+      ><!--css-build:shady--><!--css-build:shady--><tp-yt-paper-slider
+        id="expand-volume-slider"
+        class="expand-volume-slider style-scope ytmusic-player-bar"
+        slot="elements"
+        max="100"
+        min="0"
+        step="5"
+        dir="ltr"
+        title="Volume"
+        aria-label="Volume"
+        role="slider"
+        tabindex="0"
+        value="0"
+        aria-valuemin="0"
+        aria-valuemax="100"
+        aria-valuenow="0"
+        aria-disabled="false"
+        ><!--css-build:shady--><!--css-build:shady-->
+        <div
+          id="sliderContainer"
+          class="ring style-scope tp-yt-paper-slider style-scope tp-yt-paper-slider"
+        >
+          <div class="bar-container style-scope tp-yt-paper-slider">
+            <tp-yt-paper-progress
+              id="sliderBar"
+              aria-hidden="true"
+              class="style-scope tp-yt-paper-slider"
+              role="progressbar"
+              value="0"
+              aria-valuenow="0"
+              aria-valuemin="0"
+              aria-valuemax="100"
+              aria-disabled="false"
+              style="touch-action: none"
+              ><!--css-build:shady--><!--css-build:shady-->
+              <div
+                id="progressContainer"
+                class="style-scope tp-yt-paper-progress"
+              >
+                <div
+                  id="secondaryProgress"
+                  class="style-scope tp-yt-paper-progress"
+                  hidden=""
+                  style="transform: scaleX(0)"
+                ></div>
+                <div
+                  id="primaryProgress"
+                  class="style-scope tp-yt-paper-progress"
+                  style="transform: scaleX(0)"
+                ></div>
+              </div>
+            </tp-yt-paper-progress>
+          </div>
+
+          <dom-if class="style-scope tp-yt-paper-slider"
+            ><template is="dom-if"></template
+          ></dom-if>
+
+          <div
+            id="sliderKnobContainer"
+            class="slider-knob-container style-scope tp-yt-paper-slider"
+          >
+            <div
+              id="sliderKnob"
+              class="slider-knob style-scope tp-yt-paper-slider"
+              style="left: 0%; touch-action: none"
+            >
+              <div
+                class="slider-knob-inner style-scope tp-yt-paper-slider"
+                value="0"
+              ></div>
+            </div>
+          </div>
+        </div>
+
+        <dom-if class="style-scope tp-yt-paper-slider"
+          ><template is="dom-if"></template
+        ></dom-if> </tp-yt-paper-slider
+      ><yt-icon-button
+        id="expand-volume"
+        class="expand-volume style-scope ytmusic-player-bar"
+        slot="elements"
+        aria-live="polite"
+        title="Mute"
+        ><!--css-build:shady--><!--css-build:shady--><button
+          id="button"
+          class="style-scope yt-icon-button"
+          aria-label="Mute"
+        >
+          <yt-icon class="style-scope ytmusic-player-bar"
+            ><!--css-build:shady--><!--css-build:shady--><span
+              class="yt-icon-shape style-scope yt-icon ytSpecIconShapeHost"
+              ><div
+                style="
+                  width: 100%;
+                  height: 100%;
+                  display: block;
+                  fill: currentcolor;
+                "
+              >
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  fill="currentColor"
+                  height="24"
+                  viewBox="0 0 24 24"
+                  width="24"
+                  focusable="false"
+                  aria-hidden="true"
+                  style="
+                    pointer-events: none;
+                    display: inherit;
+                    width: 100%;
+                    height: 100%;
+                  "
+                >
+                  <path
+                    d="M11.485 2.143 3.913 6.687A6 6 0 001 11.832v.338a6 6 0 002.913 5.144l7.572 4.543A1 1 0 0013 21V3a1.001 1.001 0 00-1.515-.857ZM4.942 8.4 11 4.767v14.466l-6.058-3.634A4 4 0 013 12.169v-.338A4 4 0 014.942 8.4Zm16.351-.108L19 10.586l-2.293-2.293a1 1 0 10-1.414 1.414L17.586 12l-2.293 2.293a1 1 0 101.414 1.414L19 13.414l2.293 2.293a1 1 0 101.414-1.414L20.414 12l2.293-2.294a1 1 0 10-1.414-1.414Z"
+                  ></path>
+                </svg></div></span
+          ></yt-icon></button
+        ><yt-interaction
+          id="interaction"
+          class="circular style-scope yt-icon-button"
+          ><!--css-build:shady--><!--css-build:shady-->
+          <div class="stroke style-scope yt-interaction"></div>
+          <div
+            class="fill style-scope yt-interaction"
+          ></div></yt-interaction></yt-icon-button
+      ><yt-icon-button
+        id="expand-repeat"
+        class="repeat style-scope ytmusic-player-bar"
+        slot="elements"
+        aria-live="polite"
+        title="Repeat one"
+        ><!--css-build:shady--><!--css-build:shady--><button
+          id="button"
+          class="style-scope yt-icon-button"
+        >
+          <yt-icon class="style-scope ytmusic-player-bar"
+            ><!--css-build:shady--><!--css-build:shady--><span
+              class="yt-icon-shape style-scope yt-icon ytSpecIconShapeHost"
+              ><div
+                style="
+                  width: 100%;
+                  height: 100%;
+                  display: block;
+                  fill: currentcolor;
+                "
+              >
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  fill="currentColor"
+                  height="24"
+                  viewBox="0 0 24 24"
+                  width="24"
+                  focusable="false"
+                  aria-hidden="true"
+                  style="
+                    pointer-events: none;
+                    display: inherit;
+                    width: 100%;
+                    height: 100%;
+                  "
+                >
+                  <path
+                    d="M17.293 1.293a1 1 0 000 1.415L18.586 4H7a5 5 0 00-5 5v4a1 1 0 102 0V9a3 3 0 013-3h11.586l-1.293 1.293a1 1 0 001.414 1.415L22.414 5l-3.707-3.707a1 1 0 00-1.414 0ZM13 15V8h-2.5a1 1 0 000 2h.5v5a1 1 0 002 0Zm8-5a1 1 0 00-1 1v4a3 3 0 01-3 3H5.414l1.293-1.292a1.001 1.001 0 00-1.414-1.415L1.586 19l3.707 3.707a1 1 0 101.414-1.413L5.414 20H17a5 5 0 005-5v-4a1 1 0 00-1-1Z"
+                  ></path>
+                </svg></div></span
+          ></yt-icon></button
+        ><yt-interaction
+          id="interaction"
+          class="circular style-scope yt-icon-button"
+          ><!--css-build:shady--><!--css-build:shady-->
+          <div class="stroke style-scope yt-interaction"></div>
+          <div
+            class="fill style-scope yt-interaction"
+          ></div></yt-interaction></yt-icon-button
+      ><yt-icon-button
+        id="expand-shuffle"
+        class="expand-shuffle style-scope ytmusic-player-bar"
+        slot="elements"
+        title="Shuffle"
+        ><!--css-build:shady--><!--css-build:shady--><button
+          id="button"
+          class="style-scope yt-icon-button"
+          aria-label="Shuffle"
+        >
+          <yt-icon class="style-scope ytmusic-player-bar"
+            ><!--css-build:shady--><!--css-build:shady--><span
+              class="yt-icon-shape style-scope yt-icon ytSpecIconShapeHost"
+              ><div
+                style="
+                  width: 100%;
+                  height: 100%;
+                  display: block;
+                  fill: currentcolor;
+                "
+              >
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  fill="currentColor"
+                  height="24"
+                  viewBox="0 0 24 24"
+                  width="24"
+                  focusable="false"
+                  aria-hidden="true"
+                  style="
+                    pointer-events: none;
+                    display: inherit;
+                    width: 100%;
+                    height: 100%;
+                  "
+                >
+                  <path
+                    d="M16.293 1.293a1 1 0 00-.001 1.415L18.585 5H17.21a7 7 0 00-5.823 3.118L6.95 14.774A5 5 0 012.79 17H2a1 1 0 000 2h.79a7 7 0 005.822-3.117l4.438-6.656A5 5 0 0117.21 7h1.376l-2.293 2.293a1 1 0 001.414 1.414L22.414 6l-4.707-4.707a1 1 0 00-1.414 0ZM2.789 5H2a1 1 0 000 2h.79a5 5 0 014.159 2.227l.647.97 1.202-1.802-.185-.277A7 7 0 002.789 5Zm13.504 8.293a1 1 0 00-.001 1.414L18.585 17H17.21a5 5 0 01-4.16-2.226l-.648-.972-1.202 1.803.186.278A7 7 0 0017.21 19h1.376l-2.293 2.294-.068.076a1 1 0 001.406 1.406l.076-.07L22.414 18l-4.707-4.707a1 1 0 00-1.414 0Z"
+                  ></path>
+                </svg></div></span
+          ></yt-icon></button
+        ><yt-interaction
+          id="interaction"
+          class="circular style-scope yt-icon-button"
+          ><!--css-build:shady--><!--css-build:shady-->
+          <div class="stroke style-scope yt-interaction"></div>
+          <div class="fill style-scope yt-interaction"></div></yt-interaction
+      ></yt-icon-button>
+    </ytmusic-player-expanding-menu>
+    <yt-icon-button
+      class="toggle-player-page-button style-scope ytmusic-player-bar"
+      title="Open player page"
+      label="Open player page"
+      ><!--css-build:shady--><!--css-build:shady--><button
+        id="button"
+        class="style-scope yt-icon-button"
+        aria-label="Open player page"
+      >
+        <yt-icon class="style-scope ytmusic-player-bar"
+          ><!--css-build:shady--><!--css-build:shady--><span
+            class="yt-icon-shape style-scope yt-icon ytSpecIconShapeHost"
+            ><div
+              style="
+                width: 100%;
+                height: 100%;
+                display: block;
+                fill: currentcolor;
+              "
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                fill="currentColor"
+                height="24"
+                viewBox="0 0 24 24"
+                width="24"
+                focusable="false"
+                aria-hidden="true"
+                style="
+                  pointer-events: none;
+                  display: inherit;
+                  width: 100%;
+                  height: 100%;
+                "
+              >
+                <path
+                  d="M4.135 7a1 1 0 00-.768 1.64L12 19l8.633-10.36A1 1 0 0019.865 7H4.135Z"
+                ></path>
+              </svg></div></span
+        ></yt-icon></button
+      ><yt-interaction
+        id="interaction"
+        class="circular style-scope yt-icon-button"
+        ><!--css-build:shady--><!--css-build:shady-->
+        <div class="stroke style-scope yt-interaction"></div>
+        <div class="fill style-scope yt-interaction"></div></yt-interaction
+    ></yt-icon-button>
+    <yt-icon-button
+      class="exit-fullscreen-button style-scope ytmusic-player-bar"
+      title="Exit full screen"
+      ><!--css-build:shady--><!--css-build:shady--><button
+        id="button"
+        class="style-scope yt-icon-button"
+      >
+        <yt-icon class="style-scope ytmusic-player-bar"
+          ><!--css-build:shady--><!--css-build:shady--><span
+            class="yt-icon-shape style-scope yt-icon ytSpecIconShapeHost"
+            ><div
+              style="
+                width: 100%;
+                height: 100%;
+                display: block;
+                fill: currentcolor;
+              "
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                fill="currentColor"
+                height="24"
+                viewBox="0 0 24 24"
+                width="24"
+                focusable="false"
+                aria-hidden="true"
+                style="
+                  pointer-events: none;
+                  display: inherit;
+                  width: 100%;
+                  height: 100%;
+                "
+              >
+                <path
+                  d="M9 2a1 1 0 00-1 1v5H3a1 1 0 000 2h7V3a1 1 0 00-1-1Zm6 0a1 1 0 00-1 1v7h7a1 1 0 100-2h-5V3a1 1 0 00-1-1Zm-5 19v-7H3a1 1 0 000 2h5v5a1 1 0 102 0Zm11-7h-7v7a1 1 0 002 0v-5h5a1 1 0 000-2Z"
+                ></path>
+              </svg></div></span
+        ></yt-icon></button
+      ><yt-interaction
+        id="interaction"
+        class="circular style-scope yt-icon-button"
+        ><!--css-build:shady--><!--css-build:shady-->
+        <div class="stroke style-scope yt-interaction"></div>
+        <div class="fill style-scope yt-interaction"></div></yt-interaction
+    ></yt-icon-button>
+  </div>
+  <dom-if class="style-scope ytmusic-player-bar"
+    ><template is="dom-if"></template
+  ></dom-if>
+  <span
+    id="hover-time-info"
+    class="style-scope ytmusic-player-bar"
+    style="left: 0px; display: none"
+    >0:00</span
+  >
+  <tp-yt-paper-slider
+    id="progress-bar"
+    dir="ltr"
+    class="style-scope ytmusic-player-bar"
+    aria-valuetext="0 Minutes 6 Seconds of 3 Minutes 40 Seconds"
+    title="Seek slider"
+    aria-label="Seek slider"
+    role="slider"
+    tabindex="0"
+    value="6"
+    aria-valuemin="0"
+    aria-valuemax="220"
+    aria-valuenow="6"
+    aria-disabled="false"
+    ><!--css-build:shady--><!--css-build:shady-->
+    <div
+      id="sliderContainer"
+      class="style-scope tp-yt-paper-slider style-scope tp-yt-paper-slider"
+    >
+      <div class="bar-container style-scope tp-yt-paper-slider">
+        <tp-yt-paper-progress
+          id="sliderBar"
+          aria-hidden="true"
+          class="style-scope tp-yt-paper-slider"
+          role="progressbar"
+          value="6"
+          aria-valuenow="6"
+          aria-valuemin="0"
+          aria-valuemax="220"
+          aria-disabled="false"
+          style="touch-action: none"
+          ><!--css-build:shady--><!--css-build:shady-->
+          <div id="progressContainer" class="style-scope tp-yt-paper-progress">
+            <div
+              id="secondaryProgress"
+              class="style-scope tp-yt-paper-progress"
+              style="transform: scaleX(0.590909)"
+            ></div>
+            <div
+              id="primaryProgress"
+              class="style-scope tp-yt-paper-progress"
+              style="transform: scaleX(0.0272727)"
+            ></div>
+          </div>
+        </tp-yt-paper-progress>
+      </div>
+
+      <dom-if class="style-scope tp-yt-paper-slider"
+        ><template is="dom-if"></template
+      ></dom-if>
+
+      <div
+        id="sliderKnobContainer"
+        class="slider-knob-container style-scope tp-yt-paper-slider"
+      >
+        <div
+          id="sliderKnob"
+          class="slider-knob style-scope tp-yt-paper-slider"
+          style="left: 2.72727%; touch-action: none"
+        >
+          <div
+            class="slider-knob-inner style-scope tp-yt-paper-slider"
+            value="6"
+          ></div>
+        </div>
+      </div>
+    </div>
+
+    <dom-if class="style-scope tp-yt-paper-slider"
+      ><template is="dom-if"></template
+    ></dom-if>
+  </tp-yt-paper-slider>
+</ytmusic-player-bar>
