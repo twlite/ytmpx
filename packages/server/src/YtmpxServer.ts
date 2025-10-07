@@ -2,6 +2,7 @@ import { WebSocketServer } from 'ws';
 import { Client, SetActivity } from '@xhayper/discord-rpc';
 import { ActivityType } from 'discord-api-types/v10';
 import { DISCORD_CLIENT_ID, WEBSOCKET_PORT } from './constants.js';
+import { debounce } from './utils.js';
 
 interface TrackMetadata {
   title: string;
@@ -88,12 +89,16 @@ export class YtmpxServer {
   private handleWebSocketEvent(event: WebSocketEvent): void {
     const { event: eventType, metadata } = event;
 
+    const updateDiscordActivity = debounce(() =>
+      this.updateDiscordActivity().catch(console.error)
+    );
+
     switch (eventType) {
       case 'track':
         if (this.isValidMetadata(metadata)) {
           this.currentTrack = metadata;
         }
-        this.updateDiscordActivity().catch(console.error);
+        updateDiscordActivity();
         break;
 
       case 'pause':
@@ -101,7 +106,7 @@ export class YtmpxServer {
         if (this.isValidMetadata(metadata)) {
           this.currentTrack = metadata;
         }
-        this.updateDiscordActivity().catch(console.error);
+        updateDiscordActivity();
         break;
 
       case 'resume':
@@ -109,13 +114,13 @@ export class YtmpxServer {
         if (this.isValidMetadata(metadata)) {
           this.currentTrack = metadata;
         }
-        this.updateDiscordActivity().catch(console.error);
+        updateDiscordActivity();
         break;
 
       case 'TURN_ON':
         this.isDiscordRpcEnabled = true;
         console.log('Discord RPC: Enabled');
-        this.updateDiscordActivity().catch(console.error);
+        updateDiscordActivity();
         break;
 
       case 'TURN_OFF':

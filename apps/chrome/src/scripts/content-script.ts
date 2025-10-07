@@ -136,13 +136,12 @@ class YouTubeMusicContentScript {
     const trackInfo = this.getCurrentTrackInfo();
     const { isPlaying } = trackInfo;
 
-    // Send periodic update based on play state
-    const eventType = isPlaying ? 'resume' : 'pause';
-
+    // Send periodic update to keep Discord in sync
+    // This doesn't reset progress, just updates current state
     chrome.runtime.sendMessage({
-      type: 'TRACK_CHANGED',
+      type: 'TRACK_PROGRESS_UPDATE',
       trackInfo: trackInfo,
-      eventType: eventType,
+      isPlaying: isPlaying,
     });
   }
 

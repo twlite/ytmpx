@@ -15,20 +15,21 @@ chrome.runtime.onMessage.addListener((message, _sender, _sendResponse) => {
     case 'TRACK_CHANGED':
       // Send track change to websocket
       if (wsManager && message.trackInfo) {
-        if (message.eventType) {
-          // Periodic update - send specific event type
-          const eventType = message.eventType as 'resume' | 'pause';
-          wsManager.sendEvent({
-            event: eventType,
-            metadata: message.trackInfo.metadata,
-          });
-        } else {
-          // Track change - use existing logic
-          wsManager.checkForTrackChanges(
-            message.trackInfo.metadata,
-            message.trackInfo.isPlaying
-          );
-        }
+        wsManager.checkForTrackChanges(
+          message.trackInfo.metadata,
+          message.trackInfo.isPlaying
+        );
+      }
+      break;
+
+    case 'TRACK_PROGRESS_UPDATE':
+      // Send periodic progress update to websocket
+      if (wsManager && message.trackInfo) {
+        const eventType = message.isPlaying ? 'resume' : 'pause';
+        wsManager.sendEvent({
+          event: eventType,
+          metadata: message.trackInfo.metadata,
+        });
       }
       break;
 
