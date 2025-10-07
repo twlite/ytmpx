@@ -10,6 +10,14 @@ pnpm --filter=chrome build
 
 and load the `dist` directory in `chrome://extensions/`.
 
+### Previews
+
+#### Discord Presence
+<img width="488" height="293" alt="image" src="https://github.com/user-attachments/assets/41ab0e77-7fb6-4fee-9501-6a514c1ff015" />
+
+#### Extension UI
+<img width="396" height="528" alt="image" src="https://github.com/user-attachments/assets/904cb335-f406-4d27-853b-6733d9ec7908" />
+
 ---
 
 # YTMPX Server
