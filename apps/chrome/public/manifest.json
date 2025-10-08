@@ -1,9 +1,8 @@
 {
-    "$schema": "https://json.schemastore.org/chrome-manifest",
     "manifest_version": 3,
     "name": "YTMPX",
     "version": "1.0",
-    "description": "Chrome extension for YTMPX",
+    "description": "Browser extension for YouTube Music Discord RPC",
     "action": {
         "default_popup": "index.html",
         "default_icon": {
