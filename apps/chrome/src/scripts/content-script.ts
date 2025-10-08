@@ -1,4 +1,5 @@
 import { YouTubeMusicDetector } from '../utils/youtube-music-detector';
+import { WebSocketManager } from '../utils/websocket-manager';
 import type { TrackInfo } from '../types/metadata';
 
 class YouTubeMusicContentScript {
@@ -6,12 +7,19 @@ class YouTubeMusicContentScript {
   private lastIsPlaying: boolean | null = null;
   private updateInterval: number | null = null;
   private periodicUpdateInterval: number | null = null;
+  private wsManager: WebSocketManager | null = null;
 
   constructor() {
     this.init();
   }
 
   private init() {
+    // Initialize WebSocket manager
+    this.wsManager = new WebSocketManager();
+
+    // Set up WebSocket status monitoring
+    this.setupWebSocketStatusMonitoring();
+
     // Listen for messages from popup
     chrome.runtime.onMessage.addListener((message, sender, sendResponse) => {
       this.handleMessage(message, sender, sendResponse);
@@ -22,8 +30,27 @@ class YouTubeMusicContentScript {
     this.startTrackMonitoring();
   }
 
+  private setupWebSocketStatusMonitoring() {
+    if (!this.wsManager) return;
+
+    // Monitor WebSocket connection status and notify popup
+    const checkStatus = () => {
+      const status = this.wsManager?.getConnectionState() || 'disconnected';
+      chrome.runtime.sendMessage({
+        type: 'CONNECTION_STATUS_UPDATE',
+        status: status,
+      });
+    };
+
+    // Check status every 2 seconds
+    setInterval(checkStatus, 2000);
+
+    // Initial status check
+    checkStatus();
+  }
+
   private handleMessage(
-    message: { type: string },
+    message: { type: string; enabled?: boolean },
     _sender: chrome.runtime.MessageSender,
     sendResponse: (response?: unknown) => void
   ) {
@@ -38,6 +65,40 @@ class YouTubeMusicContentScript {
         case 'GET_METADATA': {
           const metadata = YouTubeMusicDetector.extractMetadata();
           sendResponse(metadata);
+          break;
+        }
+
+        case 'GET_CONNECTION_STATUS': {
+          const status = this.wsManager?.getConnectionState() || 'disconnected';
+          sendResponse({ status });
+          break;
+        }
+
+        case 'DISCORD_RPC_TOGGLE': {
+          if (this.wsManager && this.wsManager.isConnected()) {
+            const eventType = message.enabled ? 'TURN_ON' : 'TURN_OFF';
+            this.wsManager.sendEvent({
+              event: eventType as 'TURN_ON' | 'TURN_OFF',
+              metadata: {
+                author: '',
+                url: '',
+                title: '',
+                totalDuration: 0,
+                currentDuration: 0,
+                image: null,
+                artistUrl: null,
+              },
+            });
+          }
+          sendResponse({ success: true });
+          break;
+        }
+
+        case 'RECONNECT_WEBSOCKET': {
+          if (this.wsManager) {
+            this.wsManager.forceReconnect();
+          }
+          sendResponse({ success: true });
           break;
         }
 
@@ -100,12 +161,14 @@ class YouTubeMusicContentScript {
       });
     }
 
-    // Notify background script about track changes for websocket
+    // Send track changes to WebSocket
     if (hasTrackChanged || hasPlayStateChanged) {
-      chrome.runtime.sendMessage({
-        type: 'TRACK_CHANGED',
-        trackInfo: trackInfo,
-      });
+      if (this.wsManager) {
+        this.wsManager.checkForTrackChanges(
+          trackInfo.metadata,
+          trackInfo.isPlaying
+        );
+      }
     }
   }
 
@@ -136,13 +199,14 @@ class YouTubeMusicContentScript {
     const trackInfo = this.getCurrentTrackInfo();
     const { isPlaying } = trackInfo;
 
-    // Send periodic update to keep Discord in sync
-    // This doesn't reset progress, just updates current state
-    chrome.runtime.sendMessage({
-      type: 'TRACK_PROGRESS_UPDATE',
-      trackInfo: trackInfo,
-      isPlaying: isPlaying,
-    });
+    // Send periodic update to WebSocket to keep Discord in sync
+    if (this.wsManager) {
+      const eventType = isPlaying ? 'resume' : 'pause';
+      this.wsManager.sendEvent({
+        event: eventType,
+        metadata: trackInfo.metadata,
+      });
+    }
   }
 
   private getCurrentTrackInfo(): TrackInfo {
@@ -164,6 +228,10 @@ class YouTubeMusicContentScript {
     if (this.periodicUpdateInterval) {
       clearInterval(this.periodicUpdateInterval);
       this.periodicUpdateInterval = null;
+    }
+    if (this.wsManager) {
+      this.wsManager.destroy();
+      this.wsManager = null;
     }
   }
 }

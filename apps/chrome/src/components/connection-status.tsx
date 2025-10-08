@@ -48,7 +48,7 @@ export const ConnectionStatus: React.FC<ConnectionStatusProps> = ({
     setRefreshCooldown(3);
 
     try {
-      // Send message to background script to reconnect
+      // Send message to content script to reconnect
       chrome.runtime.sendMessage({ type: 'RECONNECT_WEBSOCKET' });
     } catch (error) {
       console.error('Failed to reconnect:', error);

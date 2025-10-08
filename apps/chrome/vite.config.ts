@@ -3,7 +3,7 @@ import react from '@vitejs/plugin-react';
 import { resolve } from 'node:path';
 import tailwindcss from '@tailwindcss/vite';
 
-const CHROME_SCRIPT_NAMES = new Set(['content-script', 'background']);
+const CHROME_SCRIPT_NAMES = new Set(['content-script']);
 
 // https://vite.dev/config/
 export default defineConfig({
@@ -25,7 +25,6 @@ export default defineConfig({
       input: {
         main: resolve(__dirname, 'index.html'),
         'content-script': resolve(__dirname, 'src/scripts/content-script.ts'),
-        background: resolve(__dirname, 'src/scripts/background.ts'),
       },
       output: {
         dir: 'dist',

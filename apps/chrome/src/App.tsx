@@ -56,7 +56,7 @@ function App() {
       }
     };
 
-    // Listen for connection status updates from background script
+    // Listen for connection status updates from content script
     chrome.runtime.onMessage.addListener(handleConnectionStatusUpdate);
 
     // Get initial connection status

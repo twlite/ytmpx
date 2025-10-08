@@ -162,7 +162,7 @@ export class YouTubeMusicDetector {
 
     if (!regex.test(image)) return image;
 
-    return image.replace(regex, 'w128-h128-');
+    return image.replace(regex, 'w1024-h1024-');
   }
 
   static extractDurationInfo(progressBarElement: Element | null): {

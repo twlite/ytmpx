@@ -151,23 +151,24 @@ export class YtmpxServer {
       this.isPlaying && totalDuration > 0
         ? Date.now() + (totalDuration - currentDuration)
         : undefined;
+    const currentTrackUrl =
+      this.currentTrack.url || 'https://music.youtube.com';
 
     const activity: SetActivity = {
       details: title || 'Unknown Title',
       state: author || 'Unknown Artist',
-      largeImageUrl: image ?? undefined,
+      largeImageKey: image ?? undefined,
       type: ActivityType.Listening,
       startTimestamp: startTime,
       endTimestamp: endTime,
       name: 'YouTube Music',
-      url: this.currentTrack.url || 'https://music.youtube.com',
-      detailsUrl: this.currentTrack.url || 'https://music.youtube.com',
-      stateUrl:
-        artistUrl || this.currentTrack.url || 'https://music.youtube.com',
+      url: currentTrackUrl,
+      detailsUrl: currentTrackUrl,
+      stateUrl: artistUrl || currentTrackUrl,
       buttons: [
         {
           label: 'Play on YouTube Music',
-          url: this.currentTrack.url || 'https://music.youtube.com',
+          url: currentTrackUrl,
         },
       ],
     };

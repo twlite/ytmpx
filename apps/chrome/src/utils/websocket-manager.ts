@@ -147,7 +147,7 @@ export class WebSocketManager {
   private notifyConnectionChange(
     status: 'connected' | 'disconnected' | 'reconnecting'
   ) {
-    // Notify background script about connection status change
+    // Notify content script about connection status change
     if (typeof chrome !== 'undefined' && chrome.runtime) {
       chrome.runtime
         .sendMessage({
@@ -155,7 +155,7 @@ export class WebSocketManager {
           status,
         })
         .catch(() => {
-          // Ignore errors if background script is not available
+          // Ignore errors if content script is not available
         });
     }
   }

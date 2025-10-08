@@ -30,14 +30,14 @@ export const Settings: React.FC<SettingsProps> = ({ onDiscordRpcToggle }) => {
     setDiscordRpcEnabled(enabled);
     chrome.storage.sync.set({ discordRpcEnabled: enabled });
 
-    // Send WebSocket event to background script
+    // Send WebSocket event to content script
     chrome.runtime
       .sendMessage({
         type: 'DISCORD_RPC_TOGGLE',
         enabled: enabled,
       })
       .catch(() => {
-        // Ignore errors if background script is not available
+        // Ignore errors if content script is not available
       });
 
     onDiscordRpcToggle?.(enabled);
