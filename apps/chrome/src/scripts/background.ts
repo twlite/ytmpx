@@ -64,6 +64,13 @@ chrome.runtime.onMessage.addListener((message, _sender, _sendResponse) => {
       }
       break;
 
+    case 'RECONNECT_WEBSOCKET':
+      // Handle manual reconnection
+      if (wsManager) {
+        wsManager.forceReconnect();
+      }
+      break;
+
     case 'KEEP_ALIVE':
       // Keep the service worker alive
       break;

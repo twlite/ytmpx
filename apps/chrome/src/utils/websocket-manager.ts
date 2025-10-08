@@ -43,6 +43,13 @@ export class WebSocketManager {
     this.startKeepAlive();
   }
 
+  public forceReconnect() {
+    if (this.isConnected()) return;
+
+    this.isConnecting = false;
+    this.connect();
+  }
+
   private connect() {
     if (
       this.isConnecting ||
