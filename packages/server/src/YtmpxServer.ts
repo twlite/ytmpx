@@ -1,8 +1,7 @@
-import { WebSocketServer } from 'ws';
-import { Client, SetActivity } from '@xhayper/discord-rpc';
-import { ActivityType } from 'discord-api-types/v10';
-import { DISCORD_CLIENT_ID, WEBSOCKET_PORT } from './constants.js';
-import { debounce } from './utils.js';
+import { WebSocketServer } from "ws";
+import { Client, SetActivity } from "@xhayper/discord-rpc";
+import { ActivityType } from "discord-api-types/v10";
+import { DISCORD_CLIENT_ID, WEBSOCKET_PORT } from "./constants.js";
 
 interface TrackMetadata {
   title: string;
@@ -15,7 +14,7 @@ interface TrackMetadata {
 }
 
 interface WebSocketEvent {
-  event: 'track' | 'pause' | 'resume' | 'TURN_ON' | 'TURN_OFF';
+  event: "track" | "pause" | "resume" | "TURN_ON" | "TURN_OFF";
   metadata: TrackMetadata;
 }
 
@@ -25,6 +24,7 @@ export class YtmpxServer {
   private currentTrack: TrackMetadata | null = null;
   private isPlaying = false;
   private isDiscordRpcEnabled = true;
+  private readonly useLegacyTitle = process.argv.includes("--legacy-title");
 
   public constructor() {
     this.discordClient = new Client({
@@ -37,12 +37,12 @@ export class YtmpxServer {
   }
 
   private setupDiscordRpc(): void {
-    this.discordClient.on('ready', () => {
-      console.log('Discord RPC: Connected');
+    this.discordClient.on("ready", () => {
+      console.log("Discord RPC: Connected");
     });
 
-    this.discordClient.on('error', (error) => {
-      console.error('Discord RPC: Error:', error);
+    this.discordClient.on("error", (error) => {
+      console.error("Discord RPC: Error:", error);
     });
 
     this.discordClient.login().catch(console.error);
@@ -50,31 +50,31 @@ export class YtmpxServer {
 
   private setupWebSocket(): void {
     console.log(`YTMPX Server running on ws://localhost:${WEBSOCKET_PORT}`);
-    console.log('Discord RPC: Connecting...');
+    console.log("Discord RPC: Connecting...");
 
-    this.wss.on('connection', (ws) => {
-      console.log('YTMPX: Client connected');
+    this.wss.on("connection", (ws) => {
+      console.log("YTMPX: Client connected");
 
-      ws.on('message', (data) => {
+      ws.on("message", (data) => {
         try {
           const event: WebSocketEvent = JSON.parse(data.toString());
           this.handleWebSocketEvent(event);
         } catch (error) {
-          console.error('YTMPX: Error parsing message:', error);
+          console.error("YTMPX: Error parsing message:", error);
         }
       });
 
-      ws.on('close', () => {
-        console.log('YTMPX: Client disconnected');
+      ws.on("close", () => {
+        console.log("YTMPX: Client disconnected");
         this.clearDiscordActivity().catch(console.error);
       });
 
-      ws.on('error', (err) => {
-        console.error('YTMPX: WebSocket error:', err);
+      ws.on("error", (err) => {
+        console.error("YTMPX: WebSocket error:", err);
       });
     });
 
-    console.log('Waiting for YTMPX extension to connect...');
+    console.log("Waiting for YTMPX extension to connect...");
   }
 
   private isValidMetadata(metadata: TrackMetadata): boolean {
@@ -89,27 +89,28 @@ export class YtmpxServer {
   private handleWebSocketEvent(event: WebSocketEvent): void {
     const { event: eventType, metadata } = event;
 
-    const updateDiscordActivity = debounce(() =>
-      this.updateDiscordActivity().catch(console.error)
-    );
+    const updateDiscordActivity = () =>
+      this.updateDiscordActivity().catch(console.error);
 
     switch (eventType) {
-      case 'track':
+      case "track":
         if (this.isValidMetadata(metadata)) {
           this.currentTrack = metadata;
         }
-        updateDiscordActivity();
+        if (this.isPlaying) {
+          updateDiscordActivity();
+        }
         break;
 
-      case 'pause':
+      case "pause":
         this.isPlaying = false;
         if (this.isValidMetadata(metadata)) {
           this.currentTrack = metadata;
         }
-        updateDiscordActivity();
+        this.removeDiscordActivity().catch(console.error);
         break;
 
-      case 'resume':
+      case "resume":
         this.isPlaying = true;
         if (this.isValidMetadata(metadata)) {
           this.currentTrack = metadata;
@@ -117,30 +118,37 @@ export class YtmpxServer {
         updateDiscordActivity();
         break;
 
-      case 'TURN_ON':
+      case "TURN_ON":
         this.isDiscordRpcEnabled = true;
-        console.log('Discord RPC: Enabled');
+        console.log("Discord RPC: Enabled");
         updateDiscordActivity();
         break;
 
-      case 'TURN_OFF':
+      case "TURN_OFF":
         this.isDiscordRpcEnabled = false;
-        console.log('Discord RPC: Disabled');
+        console.log("Discord RPC: Disabled");
         this.clearDiscordActivity().catch(console.error);
         break;
 
       default:
-        console.log('YTMPX: Unknown event type:', eventType);
+        console.log("YTMPX: Unknown event type:", eventType);
     }
   }
 
   private async updateDiscordActivity(): Promise<void> {
-    if (!this.isDiscordRpcEnabled || !this.currentTrack) {
+    if (!this.isDiscordRpcEnabled || !this.isPlaying || !this.currentTrack) {
+      await this.removeDiscordActivity();
       return;
     }
 
     if (!this.discordClient.isConnected) {
       await this.discordClient.login();
+    }
+
+    // Playback can pause while login is in progress.
+    if (!this.isDiscordRpcEnabled || !this.isPlaying || !this.currentTrack) {
+      await this.removeDiscordActivity();
+      return;
     }
 
     const { title, author, image, currentDuration, totalDuration, artistUrl } =
@@ -152,22 +160,23 @@ export class YtmpxServer {
         ? Date.now() + (totalDuration - currentDuration)
         : undefined;
     const currentTrackUrl =
-      this.currentTrack.url || 'https://music.youtube.com';
+      this.currentTrack.url || "https://music.youtube.com";
+    const defaultName = "YouTube Music";
 
     const activity: SetActivity = {
-      details: title || 'Unknown Title',
-      state: author || 'Unknown Artist',
+      details: title || "Unknown Title",
+      state: author || "Unknown Artist",
       largeImageKey: image ?? undefined,
       type: ActivityType.Listening,
       startTimestamp: startTime,
       endTimestamp: endTime,
-      name: 'YouTube Music',
+      name: this.useLegacyTitle ? defaultName : title || defaultName,
       url: currentTrackUrl,
       detailsUrl: currentTrackUrl,
       stateUrl: artistUrl || currentTrackUrl,
       buttons: [
         {
-          label: 'Play on YouTube Music',
+          label: "Play on YouTube Music",
           url: currentTrackUrl,
         },
       ],
@@ -175,29 +184,41 @@ export class YtmpxServer {
 
     try {
       await this.discordClient.user?.setActivity(activity);
+
+      // Ensure a pause that happened during the RPC call leaves no activity.
+      if (!this.isDiscordRpcEnabled || !this.isPlaying) {
+        await this.removeDiscordActivity();
+      }
     } catch (error) {
-      console.error('Discord RPC: Error setting activity:', error);
+      console.error("Discord RPC: Error setting activity:", error);
+    }
+  }
+
+  private async removeDiscordActivity(): Promise<void> {
+    try {
+      await this.discordClient.user?.setActivity({});
+    } catch (error) {
+      console.error("Discord RPC: Error removing activity:", error);
     }
   }
 
   private async clearDiscordActivity(): Promise<void> {
-    if (this.isDiscordRpcEnabled) {
-      try {
-        await this.discordClient.user?.setActivity({});
-        await this.discordClient.destroy();
-      } catch (error) {
-        console.error('Discord RPC: Error clearing activity:', error);
-      }
+    await this.removeDiscordActivity();
+
+    try {
+      await this.discordClient.destroy();
+    } catch (error) {
+      console.error("Discord RPC: Error clearing activity:", error);
     }
   }
 
   public start(): void {
-    console.log('YTMPX Server started');
+    console.log("YTMPX Server started");
   }
 
   public stop(): void {
     this.wss.close();
     this.discordClient.destroy();
-    console.log('YTMPX Server stopped');
+    console.log("YTMPX Server stopped");
   }
 }
